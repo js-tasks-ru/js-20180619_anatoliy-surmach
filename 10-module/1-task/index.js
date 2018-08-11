@@ -42,6 +42,18 @@
 
             this.el.classList.add('pure-table');
             this.el.innerHTML = rows;
+
+            this.el.addEventListener('click', (event) => {
+                let target = event.target;
+
+                if(!target.hasAttribute('data-remove')) {
+                    return;
+                }
+
+                let id = +target.closest('tr').getAttribute('data-id');
+
+                this.onRemoved(id);
+            });
         }
 
         /**
