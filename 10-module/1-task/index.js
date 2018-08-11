@@ -21,13 +21,37 @@
         constructor(data) {
             this.el = document.createElement('table');
             this.data = data;
+            let rows = '';
+
+            rows += `<thead><tr>
+                        <td>Name</td>
+                        <td>Age</td>
+                        <td>Salary</td>
+                        <td>City</td>
+                        <td></td>
+                    </tr></thead>`;
+
+            for (let row of this.data) {
+                rows += `<tr data-id = "${row.id}"><td>${row.name}</td>
+                            <td>${row.age}</td>
+                            <td>${row.salary}</td>
+                            <td>${row.city}</td>
+                            <td><a href="#delete" data-remove>X</a></td>
+                        </tr>`;
+            }
+
+            this.el.classList.add('pure-table');
+            this.el.innerHTML = rows;
         }
 
         /**
          * Метод который выщывается после удалении строки
          * @param {number} id - идентификатор удаляемого пользователя
          */
-        onRemoved(id) {}
+        onRemoved(id) {
+            let row = this.el.querySelector('tbody tr[data-id="' + id + '"]');
+            this.el.querySelector('tbody').removeChild(row);
+        }
     }
 
     window.ClearedTable = ClearedTable;
