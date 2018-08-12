@@ -55,7 +55,6 @@
 
                 this.el.style.left = left + 'px';
                 this.el.style.top = bottom + 'px';
-                let offset = this.el.getBoundingClientRect();
 
                 this.el.classList.add(`${this.name}_active`);
             };
