@@ -52,6 +52,9 @@
                 if (left < 0) left = 0;
 
                 let bottom = coords.bottom + this.indent;
+                if (bottom > document.documentElement.clientHeight) {
+                    bottom = coords.top - this.el.offsetHeight - this.indent;
+                }
 
                 this.el.style.left = left + 'px';
                 this.el.style.top = bottom + 'px';
