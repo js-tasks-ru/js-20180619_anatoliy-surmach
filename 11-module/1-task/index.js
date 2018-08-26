@@ -26,6 +26,7 @@
 
             this.el.classList.add(this.name);
             document.body.appendChild(this.el);
+            this.el.style.position = 'absolute'; // to fix tests bug with absent styles
             this.root= null;
         }
 
@@ -49,10 +50,10 @@
                 let coords = target.getBoundingClientRect();
 
                 let left = coords.left + (target.offsetWidth - this.el.offsetWidth) / 2;
-                if (left < 0) left = 0;
+                if (left < 0) left = coords.left;
 
                 let bottom = coords.bottom + this.indent;
-                if (bottom > document.documentElement.clientHeight) {
+                if (bottom > window.innerHeight) {
                     bottom = coords.top - this.el.offsetHeight - this.indent;
                 }
 

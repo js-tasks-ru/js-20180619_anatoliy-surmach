@@ -1,9 +1,8 @@
 .tooltip {
     padding: 5px;
     border: 1px solid black;
-    position: absolute;
     visibility: hidden;
-    left: -1000px;
+    left:-1000px;
 }
 
 .tooltip_active {
