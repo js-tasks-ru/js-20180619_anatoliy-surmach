@@ -1,10 +1,10 @@
 .tooltip {
-    display: none;
     padding: 5px;
     border: 1px solid black;
+    visibility: hidden;
+    left:-1000px;
 }
 
-.tooltip.tooltip_active {
-    display: block;
-    position: absolute;
+.tooltip_active {
+    visibility: visible;
 }
